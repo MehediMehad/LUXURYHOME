@@ -7,7 +7,6 @@ const Home = () => {
             <Helmet>
                 <title>Home</title>
             </Helmet>
-            <h1 className="text-green-500">Home Page</h1>
             <Banner></Banner>
         </div>
     );

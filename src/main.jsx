@@ -9,7 +9,7 @@ import {
 import ErrorPage from './components/ErrorPage.jsx';
 import Home from './Page/Home.jsx';
 import EstateDetails from './Page/EstateDetails.jsx';
-import { Helmet, HelmetProvider } from 'react-helmet-async';
+import { HelmetProvider } from 'react-helmet-async';
 
 const router = createBrowserRouter([
   {
