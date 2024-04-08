@@ -10,6 +10,7 @@ import ErrorPage from './components/ErrorPage.jsx';
 import Home from './Page/Home.jsx';
 import EstateDetails from './Page/EstateDetails.jsx';
 import { HelmetProvider } from 'react-helmet-async';
+import Login from './Page/Login.jsx';
 
 const router = createBrowserRouter([
   {
@@ -24,6 +25,10 @@ const router = createBrowserRouter([
       {
         path: '/details',
         element: <EstateDetails></EstateDetails>
+      },
+      {
+        path:'/login',
+        element:<Login></Login>
       }
     ]
   },
