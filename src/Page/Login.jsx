@@ -1,10 +1,12 @@
+import { NavLink } from "react-router-dom";
 
 const Login = () => {
     return (
-        <div className="card shrink-0 lg:w-[448px] md:mt-40 mx-auto shadow-2xl bg-base-100">
+        <div className="card shrink-0 md:w-[448px] md:mt-28 mx-auto shadow-2xl bg-base-100">
             <h1 className="font-bold text-4xl mt-6 text-center">Log In</h1>
+            <p className="text-base text-center mt-3">Don&apos;t have an account?<span className="text-blue-600"> <NavLink to='/register'>Sign up</NavLink> </span></p>
             <form className="card-body">
-                <div className="form-control">
+                <div className="form-control -mt-5">
                     <label className="label">
                         <span className="label-text">Email</span>
                     </label>
@@ -32,6 +34,7 @@ const Login = () => {
                     <button className="btn bg-[#db4437] text-white text-base font-bold hover:bg-[#db4437] hover:scale-105">Login with Google</button>
                 </div>
             </form>
+
         </div>
     );
 };
