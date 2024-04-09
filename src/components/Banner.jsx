@@ -6,7 +6,7 @@ import { Autoplay, Pagination} from 'swiper/modules';
 
 const Banner = () => {
     return (
-        <div className="grid grid-cols-2 lg:mx-24 mt-4 mx-3">
+        <div className="grid grid-cols-2 lg:mx-24 mt-4 mx-3 ">
             <div className=" md:w-[554px] col-span-2 lg:col-span-1 items-center content-center">
                 <div className="lg:pl-4">
                     <p>Luxury Real Estate</p>

@@ -13,7 +13,7 @@
     "description": "Beautiful single-family home in a quiet neighborhood. Spacious rooms and modern amenities.",
     "facilities": ["Swimming pool", "Garden", "Garage", "Fireplace"],
     "status": "sale",
-    "image": "https://i.ibb.co/nmvHG3J/single-family-home08.png"
+    "image": "https://i.ibb.co/Mh1Ht79/single-family-home09.png"
   },
   {
     "id": 2,
@@ -29,7 +29,7 @@
     "description": "Cozy apartment in a convenient location. Close to shopping and public transportation.",
     "facilities": ["Fitness center", "Balcony", "Laundry room"],
     "status": "rent",
-    "image": "https://i.ibb.co/nmvHG3J/single-family-home08.png"
+    "image": "https://i.ibb.co/fSJ3GFk/single-family-home06.png"
   },
   {
     "id": 3,
@@ -45,7 +45,7 @@
     "description": "Luxurious beachfront vacation rental with stunning ocean views. Perfect for a relaxing getaway.",
     "facilities": ["Private beach access", "Outdoor patio", "Jacuzzi"],
     "status": "rent",
-    "image": "https://i.ibb.co/nmvHG3J/single-family-home08.png"
+    "image": "https://i.ibb.co/k07bSKB/single-family-home03.png"
   },
   {
     "id": 4,
@@ -86,7 +86,7 @@
     "name": "University Commons",
     "area": "1500 sq ft",
     "location": "321 College Ave, University Town, USA",
-    "price": "$800/month per student",
+    "price": "$3,200/month per student",
     "bedrooms": 4,
     "bathrooms": 2,
     "size_sqft": 1500,
