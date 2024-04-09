@@ -1,7 +1,12 @@
+import { useContext } from "react";
 import { useForm } from "react-hook-form";
 import { NavLink } from "react-router-dom";
+import { AuthContext } from "../providers/AuthProvider";
 
 const Login = () => {
+    const {signIn} =useContext(AuthContext)
+
+    
     const {
         register,
         handleSubmit,
@@ -9,7 +14,8 @@ const Login = () => {
         // formState: { errors },
     } = useForm()
     const handleLogin = (data) => {
-        console.log(data);
+        const {email, password} =data
+        signIn(email, password)
     }
     return (
         <div className="card shrink-0 md:w-[448px] md:mt-28 mx-auto shadow-2xl bg-base-100">

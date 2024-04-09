@@ -1,8 +1,15 @@
-import {  NavLink } from "react-router-dom";
-import userDefaultPic from '../assets/user.png'
+import { Link, NavLink } from "react-router-dom";
+import userDefaultPic from '../assets/user_d.png'
+import { useContext } from "react";
+import { AuthContext } from "../providers/AuthProvider";
 
 const Navbar = () => {
-
+    const { user, logOut, houses } = useContext(AuthContext)
+    const handleSignOut = () =>{
+        logOut()
+        .then()
+        .catch()
+    }
     const navLinks = <>
         <li><NavLink to='/'>Home</NavLink></li>
         <li><NavLink to='/about'>About</NavLink></li>
@@ -27,21 +34,34 @@ const Navbar = () => {
                 </ul>
             </div>
             <div className="dropdown dropdown-end lg:mr-10">
-                <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
-                    <div className="w-24 mask mask-squircle">
-                        <img alt="Tailwind CSS Navbar component" src={userDefaultPic} />
-                    </div>
-                </div>
-                <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
-                    <li>
-                        <a className="justify-between">
-                            Profile
-                        </a>
-                    </li>
-                    <li><a> Settings</a></li>
-                    {/* <li><a>Logout</a></li> */}
-                    <li><NavLink to='/login'>Login</NavLink></li>
-                </ul>
+                {
+                    user ? <>
+                        <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
+                            <div className="rounded-full bg-gray-400">
+                                <img alt="Tailwind CSS Navbar component " src={userDefaultPic} />
+                            </div>
+                        </div>
+                        <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
+                            <li>
+                                <a className="justify-between">
+                                    Profile
+                                </a>
+                            </li>
+                            <li><a> Settings</a></li>
+                            {/* <li><a>Logout</a></li> */}
+                            <li><NavLink onClick={handleSignOut} to='/login'>Sign Out</NavLink></li>
+                        </ul>
+                    </> :
+                        <>
+                            <Link to ='/login' tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar  bg-gray-400">
+                                <div className=" rounded-full text-center">
+                                    <img className="" alt="Tailwind CSS Navbar component" src={userDefaultPic} />
+                                </div>
+                            </Link>
+                        </>
+                }
+
+
             </div>
         </div>
     );
