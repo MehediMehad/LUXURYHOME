@@ -4,11 +4,12 @@ import { Helmet } from "react-helmet-async";
 import { useContext, useState } from "react";
 import { AuthContext } from "../providers/AuthProvider";
 import {  toast } from 'react-toastify';
+import { BsEyeFill, BsEyeSlash } from "react-icons/bs"
 
 
 
 const Register = () => {
-
+    const [showPassword, setShowPassword] = useState(false)
     // UseContext
     const { createUser } = useContext(AuthContext)
 
@@ -91,19 +92,26 @@ const Register = () => {
                                 message: 'Password must be at least 6 characters'
                             },
                             maxLength: {
-                                value: 14,
-                                message: 'This inputs value must be max 14 characters'
+                                value: 50,
+                                message: 'This inputs value must be max 50 characters'
                             },
                             pattern:{
                                 value: /^(?=.*[A-Z])(?=.*[a-z]).+$/,
                                 message:'must include Uppercase & Lowercase letter'
                             }
-                        })} type="password" placeholder="password" className="input input-bordered" />
+                        })} type={ showPassword ? "text" : "password"} 
+                        placeholder="password" 
+                        className="input input-bordered " />
                         <div className="">
+                        <div className="relative">
+                        <p onClick={() => setShowPassword(!showPassword)} className=" cursor-pointer absolute bottom-4 md:left-[350px] left-[290px]"> {showPassword ? <BsEyeSlash></BsEyeSlash> : <BsEyeFill></BsEyeFill> } </p>
+                        </div>
                             {errors.password && <p className="text-red-500 text-sm">{errors.password.message}</p>}
                         </div>
                         <label className="label mt-1">
-                            <input type="checkbox" name="tram" id="" /> <p className="text-xs ml-2"> I accept the <NavLink>Terms and condition</NavLink></p>
+                            <input 
+                            type="checkbox" 
+                            name="tram" id="" /> <p className="text-xs ml-2"> I accept the <NavLink>Terms and condition</NavLink></p>
                         </label>
                     </div>
                     <div className="form-control">

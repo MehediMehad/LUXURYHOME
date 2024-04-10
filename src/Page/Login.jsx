@@ -1,9 +1,11 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import { NavLink } from "react-router-dom";
 import { AuthContext } from "../providers/AuthProvider";
+import { BsEyeFill, BsEyeSlash } from "react-icons/bs"
 
 const Login = () => {
+    const [showPassword, setShowPassword] = useState(false)
     const {signIn} =useContext(AuthContext)
 
     
@@ -32,8 +34,12 @@ const Login = () => {
                     <label className="label">
                         <span className="label-text">Password</span>
                     </label>
-                    <input {...register('password')} type="password" placeholder="password" className="input input-bordered" required />
+                    <input {...register('password')} type={ showPassword ? "text" : "password"}
+                    placeholder="password" className="input input-bordered" required />
                     <label className="label">
+                    <div className="relative">
+                    <p onClick={() => setShowPassword(!showPassword)} className=" cursor-pointer absolute bottom-7 md:left-[350px] left-[290px]"> {showPassword ? <BsEyeSlash></BsEyeSlash> : <BsEyeFill></BsEyeFill> } </p>
+                        </div>
                         <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
                     </label>
                 </div>
