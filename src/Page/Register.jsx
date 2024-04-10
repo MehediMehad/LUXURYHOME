@@ -3,15 +3,16 @@ import { useForm } from "react-hook-form"
 import { Helmet } from "react-helmet-async";
 import { useContext, useState } from "react";
 import { AuthContext } from "../providers/AuthProvider";
-import {  toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import { BsEyeFill, BsEyeSlash } from "react-icons/bs"
 
 
 
 const Register = () => {
     const [showPassword, setShowPassword] = useState(false)
+
     // UseContext
-    const { createUser } = useContext(AuthContext)
+    const { createUser  } = useContext(AuthContext)
 
     const {
         register,
@@ -21,7 +22,8 @@ const Register = () => {
     } = useForm()
     console.log(errors);
     const handleRegister = (data) => {
-        const { email, password } = data
+        const { email, password, image } = data
+        console.log(image);
         createUser(email, password)
             .then(() => {
                 toast.success('Register Successful')
@@ -63,6 +65,21 @@ const Register = () => {
                         <div className="">
                             {errors.fullName && <p className="text-red-500 text-sm">{errors.fullName.message}</p>}
                         </div>
+                        <div className="form-control">
+                            <label className="label">
+                                <span className="label-text">Image Url</span>
+                            </label>
+                            <input type="text" placeholder="image url" className="input input-bordered"
+                                {...register("image", {
+                                    required: {
+                                        value: true,
+                                        message: 'image url add'
+                                    }
+                                })} />
+                            <div className="">
+                                {errors.image && <p className="text-red-500 text-sm">{errors.image.message}</p>}
+                            </div>
+                        </div>
                     </div>
                     <div className="form-control">
                         <label className="label">
@@ -95,23 +112,23 @@ const Register = () => {
                                 value: 50,
                                 message: 'This inputs value must be max 50 characters'
                             },
-                            pattern:{
+                            pattern: {
                                 value: /^(?=.*[A-Z])(?=.*[a-z]).+$/,
-                                message:'must include Uppercase & Lowercase letter'
+                                message: 'must include Uppercase & Lowercase letter'
                             }
-                        })} type={ showPassword ? "text" : "password"} 
-                        placeholder="password" 
-                        className="input input-bordered " />
+                        })} type={showPassword ? "text" : "password"}
+                            placeholder="password"
+                            className="input input-bordered " />
                         <div className="">
-                        <div className="relative">
-                        <p onClick={() => setShowPassword(!showPassword)} className=" cursor-pointer absolute bottom-4 md:left-[350px] left-[290px]"> {showPassword ? <BsEyeSlash></BsEyeSlash> : <BsEyeFill></BsEyeFill> } </p>
-                        </div>
+                            <div className="relative">
+                                <p onClick={() => setShowPassword(!showPassword)} className=" cursor-pointer absolute bottom-4 md:left-[350px] left-[290px]"> {showPassword ? <BsEyeSlash></BsEyeSlash> : <BsEyeFill></BsEyeFill>} </p>
+                            </div>
                             {errors.password && <p className="text-red-500 text-sm">{errors.password.message}</p>}
                         </div>
                         <label className="label mt-1">
-                            <input 
-                            type="checkbox" 
-                            name="tram" id="" /> <p className="text-xs ml-2"> I accept the <NavLink>Terms and condition</NavLink></p>
+                            <input
+                                type="checkbox"
+                                name="tram" id="" /> <p className="text-xs ml-2"> I accept the <NavLink>Terms and condition</NavLink></p>
                         </label>
                     </div>
                     <div className="form-control">

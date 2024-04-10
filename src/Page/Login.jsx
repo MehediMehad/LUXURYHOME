@@ -3,10 +3,12 @@ import { useForm } from "react-hook-form";
 import { NavLink } from "react-router-dom";
 import { AuthContext } from "../providers/AuthProvider";
 import { BsEyeFill, BsEyeSlash } from "react-icons/bs"
+import { toast } from 'react-toastify';
+
 
 const Login = () => {
     const [showPassword, setShowPassword] = useState(false)
-    const {signIn} =useContext(AuthContext)
+    const {signIn, googleLogin, githubLogin} =useContext(AuthContext)
 
     
     const {
@@ -15,9 +17,32 @@ const Login = () => {
         // watch,
         // formState: { errors },
     } = useForm()
+
+    // google login
+    const handleGoogleLogin =() =>{
+        googleLogin()
+        .then(() => {
+            toast.success('Register Successful')
+        })
+    }
+    // google login
+    const handlegithubLogin =() =>{
+        githubLogin()
+        .then(() => {
+            toast.success('Register Successful')
+        })
+    }
     const handleLogin = (data) => {
         const {email, password} =data
         signIn(email, password)
+        .then(result =>{
+            toast.success('Login Successful')
+            console.log(result.user);
+        })
+        .catch(error =>{
+            toast.error('invalid password try again')
+            console.log(error);
+        })
     }
     return (
         <div className="card shrink-0 md:w-[448px] md:mt-28 mx-auto shadow-2xl bg-base-100">
@@ -52,10 +77,10 @@ const Login = () => {
             </form>
             <div className="card-body -mt-12">
                 <div className="form-control ">
-                    <button className="btn bg-[#2585f9] text-white text-base font-bold hover:bg-[#3488ef] hover:scale-105">Login with Facebook</button>
+                    <button onClick={()=> handlegithubLogin()} className="btn bg-[#4d4d4ddf] text-white text-base font-bold hover:bg-[#4d4d4ddf] hover:scale-105">Login with Github</button>
                 </div>
                 <div className="form-control ">
-                    <button className="btn bg-[#db4437] text-white text-base font-bold hover:bg-[#db4437] hover:scale-105">Login with Google</button>
+                    <button onClick={()=>handleGoogleLogin()}  className="btn bg-[#db4437] text-white text-base font-bold hover:bg-[#db4437] hover:scale-105">Login with Google</button>
                 </div>
             </div>
 
