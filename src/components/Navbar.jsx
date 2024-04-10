@@ -11,12 +11,12 @@ const Navbar = () => {
         .catch()
     }
     const navLinks = <>
-        <li><NavLink to='/'>Home</NavLink></li>
-        <li><NavLink to='/about'>About</NavLink></li>
-        <li><NavLink to='/contact'>Contact</NavLink></li>
+        <NavLink to='/' className={({isActive})=> isActive? 'font-bold': 'font-normal'}>Home</NavLink>
+        <NavLink to='/about' className={({isActive})=> isActive? 'font-bold': 'font-normal'}>About</NavLink>
+        <NavLink to='/contact' className={({isActive})=> isActive? 'font-bold': 'font-normal'} >Contact</NavLink>
     </>
     return (
-        <div className="navbar justify-between bg-base-100">
+        <div className="navbar justify-between bg-base-100  z-10">
             <div className="navbar-start">
                 <div className="dropdown">
                     <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -26,10 +26,10 @@ const Navbar = () => {
                         {navLinks}
                     </ul>
                 </div>
-                <NavLink to='/' className="md:text-4xl font-bold ml-7 w-96">LUXURY HOME</NavLink>
+                <NavLink to='/' className="md:text-4xl font-bold ml-7 w-96 ">LUXURY HOME</NavLink>
             </div>
             <div className="navbar hidden lg:flex">
-                <ul className="menu-horizontal px-1 gap-x-10">
+                <ul className="menu-horizontal px-1 gap-x-10 ">
                     {navLinks}
                 </ul>
             </div>

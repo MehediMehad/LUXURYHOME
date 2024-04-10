@@ -13,6 +13,12 @@ import { HelmetProvider } from 'react-helmet-async';
 import Login from './Page/Login.jsx';
 import Register from './Page/Register.jsx';
 import AuthProvider from './providers/AuthProvider.jsx';
+import About from './Page/About.jsx';
+import Contact from './Page/Contact.jsx';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+
 
 const router = createBrowserRouter([
   {
@@ -35,7 +41,15 @@ const router = createBrowserRouter([
       {
         path:'/register',
         element:<Register></Register>
-      }
+      },
+      {
+        path:'/about',
+        element:<About></About>
+      },
+      {
+        path:'/contact',
+        element:<Contact></Contact>
+      },
     ]
   },
 ]);
@@ -44,6 +58,18 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     <HelmetProvider>
       <AuthProvider>
         <RouterProvider router={router} />
+        <ToastContainer
+        position="top-right"
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="colored"
+        />
       </AuthProvider>
     </HelmetProvider>
   </React.StrictMode>,
