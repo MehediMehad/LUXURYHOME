@@ -17,6 +17,7 @@ import About from './Page/About.jsx';
 import Contact from './Page/Contact.jsx';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import PrivateRoute from './components/PrivateRoute.jsx';
 
 
 
@@ -31,8 +32,9 @@ const router = createBrowserRouter([
         element: <Home></Home>,
       },
       {
-        path: '/details',
-        element: <EstateDetails></EstateDetails>
+        path: '/details/:id',
+        element: <PrivateRoute><EstateDetails></EstateDetails></PrivateRoute>,
+        loader: () => fetch('../residential.json')
       },
       {
         path:'/login',
@@ -48,7 +50,7 @@ const router = createBrowserRouter([
       },
       {
         path:'/contact',
-        element:<Contact></Contact>
+        element:<PrivateRoute><Contact></Contact></PrivateRoute>
       },
     ]
   },

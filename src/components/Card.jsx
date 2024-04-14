@@ -1,9 +1,10 @@
 import PropTypes from 'prop-types';
+import { Link} from 'react-router-dom';
 
 const Card = ({ house }) => {
-    const { title, type, name, image,location, status, price, description, bedrooms, bathrooms, area, facilities } = house
+    const { title, type, name, image,location, status, price, description, bedrooms, bathrooms, area, facilities, id } = house
     return (
-        <div className="card rounded-md  bg-base-100 shadow-xl mt-10">
+        <div className="card rounded-md  bg-base-100 shadow-xl mt-10 ">
             <h1 className="px-6 font-bold text-2xl">{name}</h1>
             <figure className="px-6 pt-2">
                 <img  src={image} alt="Shoes" className=" w-full h-80" />
@@ -32,8 +33,8 @@ const Card = ({ house }) => {
                     </div>
                 </div>
 
-                <div className="card-actions">
-                    <button className="btn btn-link">Buy Now</button>
+                <div className="card-actions w-full">
+                    <Link to={`/details/${id}`} className="btn w-full bg-primary font-bold text-white hover:bg-blue-700 text-sm ">View Property</Link>
                 </div>
             </div>
         </div>

@@ -1,19 +1,27 @@
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
+import {Navigate } from 'react-router-dom'
 import userDefaultPic from '../assets/user_d.png'
 import { useContext } from "react";
 import { AuthContext } from "../providers/AuthProvider";
 
 const Navbar = () => {
-    const { user, logOut, houses } = useContext(AuthContext)
+    const { user, logOut, signIn, createUser } = useContext(AuthContext)
     const handleSignOut = () =>{
         logOut()
         .then()
         .catch()
     }
+    const handleLogin =() =>{
+        signIn()
+    }
+    const handleRegister =() =>{
+        <Navigate to='register'/>
+        createUser()
+    }
     const navLinks = <>
-        <NavLink to='/' className={({isActive})=> isActive? 'font-bold': 'font-normal'}>Home</NavLink>
-        <NavLink to='/about' className={({isActive})=> isActive? 'font-bold': 'font-normal'}>About</NavLink>
-        <NavLink to='/contact' className={({isActive})=> isActive? 'font-bold': 'font-normal'} >Contact</NavLink>
+        <NavLink to='/' className={({isActive})=> isActive? 'font-bold ml-3': 'font-normal ml-3'}>Home</NavLink>
+        <NavLink to='/about' className={({isActive})=> isActive? 'font-bold ml-3': 'font-normal ml-3'}>About</NavLink>
+        <NavLink to='/contact' className={({isActive})=> isActive? 'font-bold ml-3': 'font-normal ml-3'} >Contact </NavLink>
     </>
     return (
         <div className="navbar justify-between bg-base-100  z-10">
@@ -38,7 +46,7 @@ const Navbar = () => {
                     user ? <>
                         <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
                             <div className="rounded-full bg-gray-400">
-                                <img alt="Tailwind CSS Navbar component " src={userDefaultPic} />
+                                <img alt="Tailwind CSS Navbar component " src="https://i.ibb.co/HGx8gbz/comic-book-lifestyle-scene-seaside.jpg" />
                             </div>
                         </div>
                         <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
@@ -53,11 +61,16 @@ const Navbar = () => {
                         </ul>
                     </> :
                         <>
-                            <Link to ='/login' tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar  bg-gray-400">
+                            <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar  bg-gray-400">
                                 <div className=" rounded-full text-center">
                                     <img className="" alt="Tailwind CSS Navbar component" src={userDefaultPic} />
                                 </div>
-                            </Link>
+                            </div>
+                            <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-40 ">
+                            {/* <li><a>Logout</a></li> */}
+                            <li><NavLink onClick={handleLogin} to='/login'>Log in</NavLink></li>
+                            <li><NavLink onClick={handleRegister} to='/register'>Registration</NavLink></li>
+                        </ul>
                         </>
                 }
 

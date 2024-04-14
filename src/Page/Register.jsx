@@ -5,12 +5,14 @@ import { useContext, useState } from "react";
 import { AuthContext } from "../providers/AuthProvider";
 import { toast } from 'react-toastify';
 import { BsEyeFill, BsEyeSlash } from "react-icons/bs"
-
+import { useNavigate,useLocation } from "react-router-dom";
 
 
 const Register = () => {
     const [showPassword, setShowPassword] = useState(false)
-
+    const navigate = useNavigate()
+    const location = useLocation()
+    const from = location?.state || '/'
     // UseContext
     const { createUser  } = useContext(AuthContext)
 
@@ -25,8 +27,11 @@ const Register = () => {
         const { email, password, image } = data
         console.log(image);
         createUser(email, password)
-            .then(() => {
-                toast.success('Register Successful')
+        .then(result => {
+            if (result.user) {
+                navigate(from)
+                toast.success('Login Successful')
+            }
             })
             .catch(() => {
                 toast.error("email-already-in-use")

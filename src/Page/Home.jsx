@@ -7,7 +7,6 @@ import Highest from "../components/Highest";
 
 const Home = () => {
     const { houses } = useContext(AuthContext)
-
     return (
         <div className="mx-auto ">
             <Helmet>
@@ -16,7 +15,7 @@ const Home = () => {
             <Banner></Banner>
             <Highest></Highest>
             {/* more add */}
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 lg:mx-24 gap-x-16 ">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 lg:mx-48 gap-x-16 ">
                 {
                     houses.map(house => <Card
                         key={house.id}

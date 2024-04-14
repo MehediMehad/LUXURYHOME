@@ -4,11 +4,16 @@ import { NavLink } from "react-router-dom";
 import { AuthContext } from "../providers/AuthProvider";
 import { BsEyeFill, BsEyeSlash } from "react-icons/bs"
 import { toast } from 'react-toastify';
+import { useNavigate,useLocation } from "react-router-dom";
+
 
 
 const Login = () => {
     const [showPassword, setShowPassword] = useState(false)
     const {signIn, googleLogin, githubLogin} =useContext(AuthContext)
+    const navigate = useNavigate()
+    const location = useLocation()
+    const from = location?.state || '/'
 
     
     const {
@@ -21,23 +26,38 @@ const Login = () => {
     // google login
     const handleGoogleLogin =() =>{
         googleLogin()
-        .then(() => {
-            toast.success('Register Successful')
+        .then(result => {
+            if (result.user) {
+                navigate(from)
+                toast.success('Login Successful')
+            }
+            // toast.success('Register Successful')
+            // navigate('/')
         })
     }
     // google login
     const handlegithubLogin =() =>{
         githubLogin()
-        .then(() => {
-            toast.success('Register Successful')
+        .then(result => {
+            if (result.user) {
+                navigate(from)
+                toast.success('Login Successful')
+            }
+            // toast.success('Register Successful')
+            // navigate('/')
         })
     }
     const handleLogin = (data) => {
         const {email, password} =data
         signIn(email, password)
-        .then(result =>{
-            toast.success('Login Successful')
-            console.log(result.user);
+        .then(result => {
+            if (result.user) {
+                navigate(from)
+                toast.success('Login Successful')
+            }
+            // toast.success('Login Successful')
+            // navigate('/')
+            // console.log(result.user);
         })
         .catch(error =>{
             toast.error('invalid password try again')

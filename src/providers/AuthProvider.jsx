@@ -12,7 +12,7 @@ const auth = getAuth(app);
 
 const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null)
-    console.log(user);
+    const [loading, setLoading] = useState(true)
     const [houses, setHouses] = useState([])
 
     // lord data 
@@ -27,30 +27,36 @@ const AuthProvider = ({ children }) => {
 
     // create user
     const createUser = (email, password) => {
+        setLoading(true)
         return createUserWithEmailAndPassword(auth, email, password)
     }
     //Login
     const signIn = (email, password) => {
+        setLoading(true)
         return signInWithEmailAndPassword(auth, email, password)
     }
     //google login
     const googleLogin =() =>{
+        setLoading(true)
         return signInWithPopup(auth, googleProvider)
     }
     //gitHub login
     const githubLogin =() =>{
+        setLoading(true)
         return signInWithPopup(auth, githubProvider)
     }
 
     //LogOut
     const logOut = () => {
-        return signOut(auth);
+        setLoading(true)
+        setUser(null)
+         signOut(auth);
     }
     // observer
     useEffect(() => {
         const unSubscribe = onAuthStateChanged(auth, currentUser => {
             setUser(currentUser)
-            console.log(createUser);
+            setLoading(false)
         })
         return () => {
             unSubscribe()
@@ -64,6 +70,7 @@ const AuthProvider = ({ children }) => {
         signIn,
         googleLogin,
         githubLogin,
+        loading,
         houses,
     }
     return (
