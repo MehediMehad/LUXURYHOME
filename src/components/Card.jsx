@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import { Link} from 'react-router-dom';
 
 const Card = ({ house }) => {
-    const { title, type, name, image,location, status, price, description, bedrooms, bathrooms, area, facilities, id } = house
+    const { title, type, name, image, location, status, price, description, bedrooms, bathrooms, area, facilities, id } = house
     return (
         <div className="card rounded-md  bg-base-100 shadow-xl mt-10 ">
             <h1 className="px-6 font-bold text-2xl">{name}</h1>

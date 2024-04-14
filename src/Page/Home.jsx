@@ -4,16 +4,19 @@ import { useContext } from "react";
 import Card from "../components/Card";
 import { AuthContext } from "../providers/AuthProvider";
 import Highest from "../components/Highest";
+import Communities from "../components/Communities";
+import Gallery from "../components/Gallery";
 
 const Home = () => {
     const { houses } = useContext(AuthContext)
     return (
-        <div className="mx-auto ">
+        <div className="mx-auto">
             <Helmet>
                 <title>Home</title>
             </Helmet>
             <Banner></Banner>
             <Highest></Highest>
+            <Communities></Communities>
             {/* more add */}
             <div className="grid md:grid-cols-2 lg:grid-cols-3 lg:mx-48 gap-x-16 ">
                 {
@@ -26,6 +29,7 @@ const Home = () => {
             {
 
             }
+            <Gallery></Gallery>
         </div>
     );
 };

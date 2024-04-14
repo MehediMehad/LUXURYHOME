@@ -29,7 +29,7 @@
     "description": "Cozy apartment in a convenient location. Close to shopping and public transportation.",
     "facilities": ["Fitness center", "Balcony", "Laundry room"],
     "status": "rent",
-    "image": "https://i.ibb.co/fSJ3GFk/single-family-home06.png"
+    "image": "https://i.ibb.co/58mnCyW/apartment.webp"
   },
   {
     "id": 3,
@@ -45,7 +45,7 @@
     "description": "Luxurious beachfront vacation rental with stunning ocean views. Perfect for a relaxing getaway.",
     "facilities": ["Private beach access", "Outdoor patio", "Jacuzzi"],
     "status": "rent",
-    "image": "https://i.ibb.co/k07bSKB/single-family-home03.png"
+    "image": "https://i.ibb.co/92w7bm4/vacation.webp"
   },
   {
     "id": 4,
@@ -61,7 +61,7 @@
     "description": "Modern senior living community offering a range of amenities and services for active retirees.",
     "facilities": ["Community clubhouse", "Fitness classes", "24/7 security"],
     "status": "rent",
-    "image": "https://i.ibb.co/nmvHG3J/single-family-home08.png"
+    "image": "https://i.ibb.co/5x5Gkpj/d1.jpg"
   },
   {
     "id": 5,
@@ -77,7 +77,7 @@
     "description": "Spacious townhouse with a private backyard. Ideal for families or individuals looking for a cozy home.",
     "facilities": ["Community pool", "Playground", "Pet-friendly"],
     "status": "sale",
-    "image": "https://i.ibb.co/nmvHG3J/single-family-home08.png"
+    "image":"https://i.ibb.co/m6CNpwW/townhouse.webp"
   },
   {
     "id": 6,
@@ -93,6 +93,6 @@
     "description": "Convenient student housing near campus. Fully furnished and inclusive of utilities.",
     "facilities": ["Study rooms", "Fitness center", "On-site parking"],
     "status": "rent",
-    "image": "https://i.ibb.co/nmvHG3J/single-family-home08.png"
+    "image": "https://i.ibb.co/XSx05pC/student7.png"
   }
 ]

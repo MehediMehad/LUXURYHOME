@@ -1,4 +1,3 @@
-import dOne from '../assets/d1.jpg'
 import { Swiper, SwiperSlide } from "swiper/react";
 import 'swiper/css';
 import 'swiper/css/bundle';
@@ -25,16 +24,14 @@ const Banner = () => {
                     }
 
                 >
-                    <SwiperSlide><img src={dOne} alt="" /></SwiperSlide>
-                    <SwiperSlide><img src={dOne} alt="" /></SwiperSlide>
-                    <SwiperSlide><img src={dOne} alt="" /></SwiperSlide>
-                    <SwiperSlide><img src={dOne} alt="" /></SwiperSlide>
-                    <SwiperSlide><img src={dOne} alt="" /></SwiperSlide>
-                    <SwiperSlide><img src={dOne} alt="" /></SwiperSlide>
-                    <SwiperSlide><img src={dOne} alt="" /></SwiperSlide>
-                    <SwiperSlide><img src={dOne} alt="" /></SwiperSlide>
-                    <SwiperSlide><img src={dOne} alt="" /></SwiperSlide>
-                </Swiper>
+                    <SwiperSlide><img className='w-[834px] h-[574px]' src="https://i.ibb.co/5x5Gkpj/d1.jpg" alt="" /></SwiperSlide>
+                    <SwiperSlide><img className='w-[834px] h-[574px]' src="https://i.ibb.co/58mnCyW/apartment.webp" alt="" /></SwiperSlide>
+                    <SwiperSlide><img className='w-[834px] h-[574px]' src="https://i.ibb.co/Mh1Ht79/single-family-home09.png" alt="" /></SwiperSlide>
+                    <SwiperSlide><img className='w-[834px] h-[574px]' src="https://i.ibb.co/m6CNpwW/townhouse.webp" alt="" /></SwiperSlide>
+                    <SwiperSlide><img className='w-[834px] h-[574px]' src="https://i.ibb.co/92w7bm4/vacation.webp"alt="" /></SwiperSlide>
+                    <SwiperSlide><img className='w-[834px] h-[574px]' src="https://i.ibb.co/XSx05pC/student7.png" alt="" /></SwiperSlide>
+                    <SwiperSlide><img className='w-[834px] h-[574px]' src="https://i.ibb.co/92w7bm4/vacation.webp" alt="" /></SwiperSlide>
+                </Swiper> 
             </div>
         </div>
     );
