@@ -5,7 +5,7 @@ import { useContext, useState } from "react";
 import { AuthContext } from "../providers/AuthProvider";
 import { toast } from 'react-toastify';
 import { BsEyeFill, BsEyeSlash } from "react-icons/bs"
-import { useNavigate,useLocation } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 
 
 const Register = () => {
@@ -14,7 +14,7 @@ const Register = () => {
     const location = useLocation()
     const from = location?.state || '/'
     // UseContext
-    const { createUser  } = useContext(AuthContext)
+    const { createUser, updateUserProfile } = useContext(AuthContext)
 
     const {
         register,
@@ -24,14 +24,15 @@ const Register = () => {
     } = useForm()
     console.log(errors);
     const handleRegister = (data) => {
-        const { email, password, image } = data
-        console.log(image);
+        const { email, password, image, fullName } = data
+        console.log(image, email, password);
         createUser(email, password)
-        .then(result => {
-            if (result.user) {
-                navigate(from)
-                toast.success('Login Successful')
-            }
+            .then(() => {
+                updateUserProfile(fullName, image)
+                    .then(() => {
+                        navigate(from)
+                    })
+                    toast.success('Login Successful')
             })
             .catch(() => {
                 toast.error("email-already-in-use")

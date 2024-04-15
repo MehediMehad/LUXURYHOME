@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import { createContext, useEffect, useState } from "react";
-import { GithubAuthProvider, GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut } from "firebase/auth";
+import { GithubAuthProvider, GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
 import app from '../firebase/firebase.config';
 // import { data } from 'autoprefixer';
 
@@ -17,7 +17,7 @@ const AuthProvider = ({ children }) => {
 
     // lord data 
     useEffect(() => {
-        fetch('residential.json')
+        fetch('/residential.json')
         .then((res) => res.json())
         .then((data) =>{
             setHouses(data)
@@ -30,6 +30,21 @@ const AuthProvider = ({ children }) => {
         setLoading(true)
         return createUserWithEmailAndPassword(auth, email, password)
     }
+    // update user
+    const updateUserProfile =(name, image ) => {
+       return updateProfile(auth.currentUser, {
+            displayName: name, 
+            photoURL: image
+          }).then(() => {
+            // Profile updated!
+            // ...
+          }).catch(() => {
+            // An error occurred
+            // ...
+          });
+          
+    }
+
     //Login
     const signIn = (email, password) => {
         setLoading(true)
@@ -48,15 +63,17 @@ const AuthProvider = ({ children }) => {
 
     //LogOut
     const logOut = () => {
-        setLoading(true)
         setUser(null)
          signOut(auth);
     }
     // observer
     useEffect(() => {
         const unSubscribe = onAuthStateChanged(auth, currentUser => {
-            setUser(currentUser)
-            setLoading(false)
+
+            if (currentUser) {
+                setUser(currentUser)
+                setLoading(false)
+            }
         })
         return () => {
             unSubscribe()
@@ -72,6 +89,7 @@ const AuthProvider = ({ children }) => {
         githubLogin,
         loading,
         houses,
+        updateUserProfile
     }
     return (
         <AuthContext.Provider value={authInfo}>

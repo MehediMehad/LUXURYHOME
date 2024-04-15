@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom";
 import {Navigate } from 'react-router-dom'
-import userDefaultPic from '../assets/user_d.png'
+import userDefaultPic from '../assets/dddd.png'
 import { useContext } from "react";
 import { AuthContext } from "../providers/AuthProvider";
 
@@ -41,19 +41,27 @@ const Navbar = () => {
                     {navLinks}
                 </ul>
             </div>
-            <div className="dropdown dropdown-end lg:mr-10">
+            {
+                user ? 
+                    <><NavLink className='btn' onClick={handleSignOut} to='/login'>Sign Out</NavLink></>
+                    :
+                    <>
+                    <NavLink className='btn' onClick={handleLogin} to='/login'>Log in</NavLink>
+                    </>
+                
+            }            <div className="dropdown dropdown-end lg:mr-10">
                 {
                     user ? <>
                         <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
-                            <div className="rounded-full bg-gray-400">
-                                <img alt="Tailwind CSS Navbar component " src="https://i.ibb.co/HGx8gbz/comic-book-lifestyle-scene-seaside.jpg" />
+                            <div className="rounded-full ">
+                                <img className="w-full" alt="Tailwind CSS Navbar component " src={user?.photoURL || userDefaultPic} />
                             </div>
                         </div>
                         <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
                             <li>
-                                <a className="justify-between">
-                                    Profile
-                                </a>
+                                <p className="justify-between">
+                                    {user.displayName}
+                                </p>
                             </li>
                             <li><a> Settings</a></li>
                             {/* <li><a>Logout</a></li> */}
@@ -61,9 +69,9 @@ const Navbar = () => {
                         </ul>
                     </> :
                         <>
-                            <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar  bg-gray-400">
+                            <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar ">
                                 <div className=" rounded-full text-center">
-                                    <img className="" alt="Tailwind CSS Navbar component" src={userDefaultPic} />
+                                    <img className="" alt="" src={userDefaultPic} />
                                 </div>
                             </div>
                             <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-40 ">
