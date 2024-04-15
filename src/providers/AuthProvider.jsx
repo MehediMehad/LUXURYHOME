@@ -14,7 +14,7 @@ const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null)
     const [loading, setLoading] = useState(true)
     const [houses, setHouses] = useState([])
-
+    console.log(user);
     // lord data 
     useEffect(() => {
         fetch('/residential.json')
@@ -69,10 +69,10 @@ const AuthProvider = ({ children }) => {
     // observer
     useEffect(() => {
         const unSubscribe = onAuthStateChanged(auth, currentUser => {
-
+            
+            setLoading(false)
             if (currentUser) {
                 setUser(currentUser)
-                setLoading(false)
             }
         })
         return () => {

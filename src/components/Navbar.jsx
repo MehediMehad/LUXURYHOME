@@ -22,6 +22,8 @@ const Navbar = () => {
         <NavLink to='/' className={({isActive})=> isActive? 'font-bold ml-3': 'font-normal ml-3'}>Home</NavLink>
         <NavLink to='/about' className={({isActive})=> isActive? 'font-bold ml-3': 'font-normal ml-3'}>About</NavLink>
         <NavLink to='/contact' className={({isActive})=> isActive? 'font-bold ml-3': 'font-normal ml-3'} >Contact </NavLink>
+        <NavLink to='/profile' className={({isActive})=> isActive? 'font-bold ml-3': 'font-normal ml-3'} >Profile </NavLink>
+        <NavLink to='/ll' className={({isActive})=> isActive? 'font-bold ml-3': 'font-normal ml-3'} >Update profile </NavLink>
     </>
     return (
         <div className="navbar justify-between bg-base-100  z-10">
@@ -40,16 +42,8 @@ const Navbar = () => {
                 <ul className="menu-horizontal px-1 gap-x-10 ">
                     {navLinks}
                 </ul>
-            </div>
-            {
-                user ? 
-                    <><NavLink className='btn' onClick={handleSignOut} to='/login'>Sign Out</NavLink></>
-                    :
-                    <>
-                    <NavLink className='btn' onClick={handleLogin} to='/login'>Log in</NavLink>
-                    </>
-                
-            }            <div className="dropdown dropdown-end lg:mr-10">
+            </div>    
+             <div className="dropdown dropdown-end lg:mr-10">
                 {
                     user ? <>
                         <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
