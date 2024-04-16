@@ -63,8 +63,8 @@ const Register = () => {
                                 message: 'This inputs value must be at least 3 characters'
                             },
                             maxLength: {
-                                value: 10,
-                                message: 'This inputs value must be max 10 characters'
+                                value: 30,
+                                message: 'This inputs value must be max 30 characters'
                             }
 
                         })} type="text" placeholder="full name" className="input input-bordered" />
