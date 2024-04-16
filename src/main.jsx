@@ -19,6 +19,7 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import PrivateRoute from './components/PrivateRoute.jsx';
 import Profile from './Page/Profile.jsx';
+import ProfileUpdated from './Page/ProfileUpdated.jsx';
 
 
 
@@ -56,6 +57,10 @@ const router = createBrowserRouter([
       {
         path:'/profile',
         element:<PrivateRoute><Profile></Profile></PrivateRoute>
+      },
+      {
+        path:'/profileupdated',
+        element:<PrivateRoute><ProfileUpdated></ProfileUpdated></PrivateRoute>
       },
     ]
   },
