@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import { useLoaderData, useParams } from "react-router-dom";
 
 
@@ -7,6 +8,10 @@ const EstateDetails = () => {
     const home = homes.find(home => home.id == id )
     const { title, type, name, image,location, status, price, description, bedrooms, bathrooms, area, facilities } = home
     return (
+        <>
+        <Helmet>
+            <title>Property Details </title>
+        </Helmet>
         <div className="card rounded-md  bg-base-100 shadow-xl mt-10 w-3/5 mx-auto mb-36">
             <h1 className="px-6 font-bold text-2xl">{name}</h1>
             <figure className="px-6 pt-2">
@@ -37,6 +42,7 @@ const EstateDetails = () => {
                 </div>
             </div>
         </div>
+        </>
     );
 };
 

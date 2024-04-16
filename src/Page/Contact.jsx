@@ -1,7 +1,12 @@
+import { Helmet } from "react-helmet-async";
 
 const Contact = () => {
     return (
+
         <>
+            <Helmet>
+                <title>Contact</title>
+            </Helmet>
             <div className="p-5 mx-auto sm:p-10 md:p-16 text-gray-100">
                 <div className="flex flex-col max-w-3xl mx-auto overflow-hidden rounded">
                     <img src="https://i.ibb.co/Mh1Ht79/single-family-home09.png" alt="" className="w-full h-60 sm:h-96 bg-gray-500" />

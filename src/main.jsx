@@ -20,7 +20,9 @@ import 'react-toastify/dist/ReactToastify.css';
 import PrivateRoute from './components/PrivateRoute.jsx';
 import Profile from './Page/Profile.jsx';
 import ProfileUpdated from './Page/ProfileUpdated.jsx';
-
+import AOS from 'aos';
+import 'aos/dist/aos.css'; 
+AOS.init();
 
 
 const router = createBrowserRouter([

@@ -1,11 +1,10 @@
 import { NavLink } from "react-router-dom";
 import { Navigate } from 'react-router-dom'
 import userDefaultPic from '../assets/dddd.png'
-import { useContext, useState } from "react";
+import { useContext,} from "react";
 import { AuthContext } from "../providers/AuthProvider";
 
 const Navbar = () => {
-    const [isShown, setIsShown] = useState(false);
     const { user, logOut, signIn, createUser } = useContext(AuthContext)
     const handleSignOut = () => {
         logOut()
@@ -49,8 +48,7 @@ const Navbar = () => {
                     user ? <>
 
                         <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
-                            <div className="rounded-full" onMouseEnter={() => setIsShown(true)}
-                                onMouseLeave={() => setIsShown(false)}>
+                            <div title={user?.displayName } className="rounded-full">
                                 <img className="w-full" alt="Tailwind CSS Navbar component " src={user?.photoURL || userDefaultPic} />
                             </div>
                         </div>
@@ -74,9 +72,6 @@ const Navbar = () => {
 
 
             </div>
-            { 
-                isShown && <h1  className="absolute z-10 right-32 font-semibold ">{user.displayName}</h1>
-            }
         </div>
     );
 };
