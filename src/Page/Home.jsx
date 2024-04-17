@@ -6,6 +6,7 @@ import { AuthContext } from "../providers/AuthProvider";
 import Highest from "../components/Highest";
 import Communities from "../components/Communities";
 import Gallery from "../components/Gallery";
+import Articles from "../components/Articles";
 
 const Home = () => {
     const { houses } = useContext(AuthContext)
@@ -30,6 +31,7 @@ const Home = () => {
 
             }
             <Gallery></Gallery>
+            <Articles></Articles>
         </div>
     );
 };

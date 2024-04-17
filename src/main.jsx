@@ -13,7 +13,6 @@ import { HelmetProvider } from 'react-helmet-async';
 import Login from './Page/Login.jsx';
 import Register from './Page/Register.jsx';
 import AuthProvider from './providers/AuthProvider.jsx';
-import About from './Page/About.jsx';
 import Contact from './Page/Contact.jsx';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -47,10 +46,6 @@ const router = createBrowserRouter([
       {
         path:'/register',
         element:<Register></Register>
-      },
-      {
-        path:'/about',
-        element:<About></About>
       },
       {
         path:'/contact',

@@ -1,7 +1,7 @@
 import { useContext, useState } from "react";
 import { AuthContext } from "../providers/AuthProvider";
 import { updateProfile } from "firebase/auth";
-
+import { NavLink } from "react-router-dom";
 const ProfileUpdated = () => {
   const { user } = useContext(AuthContext)
   const [displayName, setDisplayName] = useState(user?.displayName);
@@ -10,11 +10,13 @@ const ProfileUpdated = () => {
      return updateProfile(user, {
         displayName: displayName,
         photoURL: profileImgUrl,
+        
       });
     }
   return (
     <div className="content-center h-screen text-center items-center">
-      <div className="bg-rose-500 md:w-1/4 mx-auto rounded-md p-5">
+      <div className=" bg-emerald-100 md:w-1/4 mx-auto rounded-md p-5 shadow-lg">
+        <img className=" inline rounded-full" src={user.photoURL} alt="" />
       <h1 className="text-2xl font-bold">Hello {user?.displayName}</h1>
       <h2 className="text-2xl my-3">Update Profile</h2>
       <div className="mb-3">  
@@ -33,9 +35,8 @@ const ProfileUpdated = () => {
         value={profileImgUrl}
         onChange={(e) => setProfileImgUrl(e.target.value)}
       />
-      <div className="mt-2 w-full">
-
-      <button className="px-5 py-2 rounded-md bg-slate-700" onClick={handleSave}>Update </button>
+      <div className="mt-5 w-full ">
+      <NavLink to='/profile' className="px-5 py-2 rounded-md bg-emerald-600 font-bold text-white" onClick={handleSave}>Update </NavLink>
       </div>
       </div>
     </div>

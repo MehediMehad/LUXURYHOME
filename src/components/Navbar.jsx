@@ -20,7 +20,6 @@ const Navbar = () => {
     }
     const navLinks = <>
         <NavLink to='/' className={({ isActive }) => isActive ? 'font-bold ml-3' : 'font-normal ml-3'}>Home</NavLink>
-        <NavLink to='/about' className={({ isActive }) => isActive ? 'font-bold ml-3' : 'font-normal ml-3'}>About</NavLink>
         <NavLink to='/contact' className={({ isActive }) => isActive ? 'font-bold ml-3' : 'font-normal ml-3'} >Contact </NavLink>
         <NavLink to='/profile' className={({ isActive }) => isActive ? 'font-bold ml-3' : 'font-normal ml-3'} >Profile </NavLink>
         <NavLink to='/profileupdated' className={({ isActive }) => isActive ? 'font-bold ml-3' : 'font-normal ml-3'} >Update profile </NavLink>

@@ -12,7 +12,7 @@ const EstateDetails = () => {
         <Helmet>
             <title>Property Details </title>
         </Helmet>
-        <div className="card rounded-md  bg-base-100 shadow-xl mt-10 w-3/5 mx-auto mb-36">
+        <div className="card rounded-md  bg-base-100 shadow-xl mt-10 md:w-2/6 mx-auto mb-36">
             <h1 className="px-6 font-bold text-2xl">{name}</h1>
             <figure className="px-6 pt-2">
                 <img  src={image} alt="Shoes" className="w-full h-2/4" />
