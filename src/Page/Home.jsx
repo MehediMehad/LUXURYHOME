@@ -1,6 +1,6 @@
 import { Helmet } from "react-helmet-async";
 import Banner from "../components/Banner";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import Card from "../components/Card";
 import { AuthContext } from "../providers/AuthProvider";
 import Highest from "../components/Highest";
@@ -9,6 +9,9 @@ import Gallery from "../components/Gallery";
 import Articles from "../components/Articles";
 
 const Home = () => {
+    useEffect(()=>{
+        window.scroll(0, 0)
+    },[])
     const { houses } = useContext(AuthContext)
     return (
         <div className="mx-auto">

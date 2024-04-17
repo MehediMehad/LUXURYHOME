@@ -1,6 +1,11 @@
+import { useEffect } from "react";
 import { Helmet } from "react-helmet-async";
 
+
 const Contact = () => {
+    useEffect(()=>{
+        window.scroll(0, 0)
+    },[])
     return (
 
         <>

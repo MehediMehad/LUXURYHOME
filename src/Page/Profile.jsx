@@ -1,8 +1,11 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { AuthContext } from "../providers/AuthProvider";
 import { Helmet } from "react-helmet-async";
 
 const Profile = () => {
+    useEffect(()=>{
+        window.scroll(0, 0)
+    },[])
     const { user, uiUpUser } = useContext(AuthContext)
     console.log(uiUpUser);
     return (

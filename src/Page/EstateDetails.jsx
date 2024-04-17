@@ -1,8 +1,12 @@
+import { useEffect } from "react";
 import { Helmet } from "react-helmet-async";
 import { useLoaderData, useParams } from "react-router-dom";
 
 
 const EstateDetails = () => {
+    useEffect(()=>{
+        window.scroll(0, 0)
+    },[])
     const homes = useLoaderData()
     const {id} = useParams()
     const home = homes.find(home => home.id == id )

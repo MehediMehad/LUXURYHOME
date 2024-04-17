@@ -1,10 +1,12 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../providers/AuthProvider";
 import { updateProfile } from "firebase/auth";
 import { NavLink } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 const ProfileUpdated = () => {
-   
+  useEffect(()=>{
+    window.scroll(0, 0)
+},[])
   const { user,setUiUpUser } = useContext(AuthContext)
   const [displayName, setDisplayName] = useState(user?.displayName);
   const [profileImgUrl, setProfileImgUrl] = useState(user?.photoURL);

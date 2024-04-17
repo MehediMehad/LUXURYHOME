@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom";
 import { useForm } from "react-hook-form"
 import { Helmet } from "react-helmet-async";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../providers/AuthProvider";
 import { toast } from 'react-toastify';
 import { BsEyeFill, BsEyeSlash } from "react-icons/bs"
@@ -47,6 +47,9 @@ const Register = () => {
                 toast.error("email-already-in-use")
             })
     }
+    useEffect(()=>{
+        window.scroll(0, 0)
+    },[])
     // createUser
 
     return (
