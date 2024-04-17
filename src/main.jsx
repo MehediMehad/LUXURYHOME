@@ -21,6 +21,8 @@ import Profile from './Page/Profile.jsx';
 import ProfileUpdated from './Page/ProfileUpdated.jsx';
 import AOS from 'aos';
 import 'aos/dist/aos.css'; 
+import About from './Page/About.jsx';
+import FeedBack from './Page/FeedBack.jsx';
 AOS.init();
 
 
@@ -42,6 +44,14 @@ const router = createBrowserRouter([
       {
         path:'/login',
         element:<Login></Login>
+      },
+      {
+        path:'/about',
+        element:<PrivateRoute><About></About></PrivateRoute>
+      },
+      {
+        path:'/feedback',
+        element:<PrivateRoute><FeedBack></FeedBack></PrivateRoute>
       },
       {
         path:'/register',

@@ -21,6 +21,8 @@ const Navbar = () => {
     const navLinks = <>
         <NavLink to='/' className={({ isActive }) => isActive ? 'font-bold ml-3' : 'font-normal ml-3'}>Home</NavLink>
         <NavLink to='/contact' className={({ isActive }) => isActive ? 'font-bold ml-3' : 'font-normal ml-3'} >Contact </NavLink>
+        <NavLink to='/about' className={({ isActive }) => isActive ? 'font-bold ml-3' : 'font-normal ml-3'} >About </NavLink>
+        <NavLink to='/feedback' className={({ isActive }) => isActive ? 'font-bold ml-3' : 'font-normal ml-3'} >Feedback </NavLink>
         {
             user && <>
                 <NavLink to='/profile' className={({ isActive }) => isActive ? 'font-bold ml-3' : 'font-normal ml-3'} >Profile </NavLink>
