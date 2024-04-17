@@ -1,7 +1,7 @@
 
 const Articles = () => {
     return (
-        <div className="mb-20 mt-14">
+        <div className="mb-20 mt-14 mx-5 md:mx-0">
             <div className="text-center mb-3">
                 <h1 className="text-xl">OUR LATEST HOMES</h1>
                 <h1 className="text-4xl font-bold">News & Articles</h1>

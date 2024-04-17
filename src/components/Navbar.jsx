@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom";
 import { Navigate } from 'react-router-dom'
 import userDefaultPic from '../assets/dddd.png'
-import { useContext,} from "react";
+import { useContext, } from "react";
 import { AuthContext } from "../providers/AuthProvider";
 
 const Navbar = () => {
@@ -21,11 +21,15 @@ const Navbar = () => {
     const navLinks = <>
         <NavLink to='/' className={({ isActive }) => isActive ? 'font-bold ml-3' : 'font-normal ml-3'}>Home</NavLink>
         <NavLink to='/contact' className={({ isActive }) => isActive ? 'font-bold ml-3' : 'font-normal ml-3'} >Contact </NavLink>
-        <NavLink to='/profile' className={({ isActive }) => isActive ? 'font-bold ml-3' : 'font-normal ml-3'} >Profile </NavLink>
-        <NavLink to='/profileupdated' className={({ isActive }) => isActive ? 'font-bold ml-3' : 'font-normal ml-3'} >Update profile </NavLink>
+        {
+            user && <>
+                <NavLink to='/profile' className={({ isActive }) => isActive ? 'font-bold ml-3' : 'font-normal ml-3'} >Profile </NavLink>
+                <NavLink to='/profileupdated' className={({ isActive }) => isActive ? 'font-bold ml-3' : 'font-normal ml-3'} >Update profile </NavLink>
+            </>
+        }
     </>
     return (
-        <div className="navbar justify-between bg-base-100  z-10">
+        <div className="navbar top-0 justify-between bg-base-100 fixed z-10 ">
             <div className="navbar-start">
                 <div className="dropdown">
                     <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -47,7 +51,7 @@ const Navbar = () => {
                     user ? <>
 
                         <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
-                            <div title={user?.displayName } className="rounded-full">
+                            <div title={user?.displayName} className="rounded-full">
                                 <img className="w-full" alt="Tailwind CSS Navbar component " src={user?.photoURL || userDefaultPic} />
                             </div>
                         </div>

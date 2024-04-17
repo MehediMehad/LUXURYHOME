@@ -6,6 +6,7 @@ import { AuthContext } from "../providers/AuthProvider";
 import { toast } from 'react-toastify';
 import { BsEyeFill, BsEyeSlash } from "react-icons/bs"
 import { useNavigate, useLocation } from "react-router-dom";
+import { updateProfile } from "firebase/auth";
 
 
 const Register = () => {
@@ -14,7 +15,7 @@ const Register = () => {
     const location = useLocation()
     const from = location?.state || '/'
     // UseContext
-    const { createUser, updateUserProfile } = useContext(AuthContext)
+    const { createUser,  setUser } = useContext(AuthContext)
 
     const {
         register,
@@ -27,9 +28,17 @@ const Register = () => {
         const { email, password, image, fullName } = data
         console.log(image, email, password);
         createUser(email, password)
-            .then(() => {
-                updateUserProfile(fullName, image)
+            .then((reuslt) => {
+                setUser({
+                    displayName: fullName, 
+                    photoURL: image
+                })
+                updateProfile(reuslt.user, {
+                    displayName: fullName, 
+                    photoURL: image
+                  })
                     .then(() => {
+
                         navigate(from)
                     })
                     toast.success('Login Successful')

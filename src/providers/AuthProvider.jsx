@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import { createContext, useEffect, useState } from "react";
-import { GithubAuthProvider, GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
+import { GithubAuthProvider, GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut } from "firebase/auth";
 import app from '../firebase/firebase.config';
 // import { data } from 'autoprefixer';
 
@@ -11,6 +11,7 @@ const githubProvider = new GithubAuthProvider()
 const auth = getAuth(app);
 
 const AuthProvider = ({ children }) => {
+    const [uiUpUser , setUiUpUser] = useState({})
     const [user, setUser] = useState(null)
     const [loading, setLoading] = useState(true)
     const [houses, setHouses] = useState([])
@@ -31,19 +32,13 @@ const AuthProvider = ({ children }) => {
         return createUserWithEmailAndPassword(auth, email, password)
     }
     // update user
-    const updateUserProfile =(name, image ) => {
-       return updateProfile(auth.currentUser, {
-            displayName: name, 
-            photoURL: image
-          }).then(() => {
-            // Profile updated!
-            // ...
-          }).catch(() => {
-            // An error occurred
-            // ...
-          });
+    // const updateUserProfile =(name, image ) => {
+    //    return updateProfile(auth.currentUser, {
+    //         displayName: name, 
+    //         photoURL: image
+    //       })
           
-    }
+    // }
 
     //Login
     const signIn = (email, password) => {
@@ -89,7 +84,9 @@ const AuthProvider = ({ children }) => {
         githubLogin,
         loading,
         houses,
-        updateUserProfile
+        setUser,
+        setUiUpUser,
+        uiUpUser,
     }
     return (
         <AuthContext.Provider value={authInfo}>
